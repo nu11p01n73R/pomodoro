@@ -6,6 +6,9 @@
   "dependencies": {
     "express": "^4.16.3"
   },
+  "engines": {
+    "node": "10.9.0"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "cp src/index.html dist/ && webpack-dev-server",
