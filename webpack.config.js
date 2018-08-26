@@ -8,7 +8,7 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'main.js'
     },
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'

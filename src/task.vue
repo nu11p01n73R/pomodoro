@@ -40,7 +40,7 @@
          v-if="list=='all'"
          class="progress w-100">
             <div 
-             class="progress-bar progress-bar-striped bg-danger" 
+             class="progress-bar progress-bar-striped bg-success" 
              v-bind:style="{width : (task.time / totalTime * 100) + '%'}"
              role="progressbar" 
              aria-valuenow="100" 

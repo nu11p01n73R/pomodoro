@@ -9,26 +9,7 @@ var vue = new Vue({
         newTaskName: "",
         current: null,
         showList: 'todo',
-        tasks: [
-         {
-                id: 'one',
-                name: "Do this",
-                done: false,
-                time: 0,
-            },
-         {
-                id: 'two',
-                name: 'and this',
-                done: false,
-                time: 0,
-            },
-         {
-                id: 'three',
-                name: "Done this",
-                done: true,
-                time: 0,
-            }
-        ],
+        tasks: [],
     },
 
     computed: {
@@ -66,6 +47,7 @@ var vue = new Vue({
                 time: 0,
             }
 
+            this.newTaskName = ""
             this.tasks.push(task)
         }
     },
