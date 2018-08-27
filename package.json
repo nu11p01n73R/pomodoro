@@ -12,7 +12,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack && cp src/index.html dist",
+    "copy-static": "cp src/index.html src/favicon.png dist",
+    "build": "NODE_ENV=production webpack && npm run copy-static",
     "postinstall": "npm run build"
   },
   "devDependencies": {
