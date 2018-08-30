@@ -45,6 +45,7 @@
                         <input 
                         class="form-control"
                         v-model="newTaskName" 
+                        v-on:keyup.enter="create"
                         placeholder="Name"/>
                     </div>
                     <div class="col-2">
