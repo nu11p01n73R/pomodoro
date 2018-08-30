@@ -27,10 +27,10 @@
             Play
         </button>
         <button 
-         class="btn btn-outline-warning btn-lg"
+         class="btn btn-outline-danger btn-lg"
          v-show="timer" 
-         v-on:click="pause">
-            Pause
+         v-on:click="reset">
+            Reset
         </button>
     </div>
 </template>
@@ -55,9 +55,7 @@ export default {
     },
     watch: {
         task: function() {
-            this.remaining = INTERVAL
-            clearInterval(this.timer)
-            this.timer = null
+            this.reset()
         }
     },
 
@@ -82,6 +80,11 @@ export default {
             this.timer = setInterval(this.tick, 1000)
         },
         pause: function() {
+            clearInterval(this.timer)
+            this.timer = null
+        },
+        reset: function() {
+            this.remaining = INTERVAL
             clearInterval(this.timer)
             this.timer = null
         },
