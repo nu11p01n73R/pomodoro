@@ -12,6 +12,13 @@ var vue = new Vue({
         tasks: [],
     },
 
+    created: function() {
+        if ("Notification" in window
+            && Notification.permission != "granted") {
+                Notification.requestPermission()
+        }
+    },
+
     computed: {
         filtered: function() {
             if (this.showList == 'todo') {

@@ -51,6 +51,7 @@ export default {
         return {
             remaining: INTERVAL,
             timer: null,
+            notified: false,
         }
     },
     watch: {
@@ -74,6 +75,7 @@ export default {
                 this.remaining--
             }
             this.task.time++
+            this.notify()
         },
         start: function() {
             this.tick()
@@ -87,7 +89,20 @@ export default {
             this.remaining = INTERVAL
             clearInterval(this.timer)
             this.timer = null
+            this.notified = false
         },
+        notify: function() {
+            var vm = this
+            if ("Notification" in window 
+                && Notification.permission == "granted"
+                && vm.remaining == 0
+                && !vm.notified ) {
+                    new Notification('(╯°□°）╯︵ ┻━┻', {
+                        silent: true
+                    })
+                    vm.notified = true
+            }
+        }
     }     
 }
 </script>
